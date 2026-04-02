@@ -42,35 +42,35 @@ const Hero = () => {
   const matchedSector = useMemo(() => getSectorFromDomain(domaine), [domaine]);
 
   return (
-    <section className="relative pt-32 pb-40 lg:pt-48 lg:pb-64 bg-[#3B24D9] text-white overflow-hidden">
+    <section className="relative pt-32 pb-40 lg:pt-48 lg:pb-64 bg-blue-50/50 text-gray-900 overflow-hidden">
       <div className="container mx-auto px-4 relative z-10 w-full">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div className="max-w-2xl">
             <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold mb-8 leading-[1.1] tracking-tight">
-              <span className="text-[#00E5A3]">De votre domaine à votre OPCO,</span>
+              <span className="text-primary">De votre domaine à votre OPCO,</span>
               <br />
               et forcément le bon accompagnement.
             </h1>
 
             <div className="flex flex-col space-y-4 max-w-xl mt-12">
               <div className="flex flex-col gap-2">
-                <div className="bg-white rounded-lg px-4 py-4 text-gray-900 flex items-center shadow-lg h-16 w-full">
+                <div className="bg-white rounded-lg px-4 py-4 text-gray-900 flex items-center shadow-lg border border-blue-100 h-16 w-full">
                   <input
                     type="text"
                     value={domaine}
                     onChange={(e) => setDomaine(e.target.value)}
                     placeholder="Diplôme, métier, domaine..."
-                    className="w-full bg-transparent border-none outline-none focus:ring-0 text-lg placeholder:text-gray-500 font-medium"
+                    className="w-full bg-transparent border-none outline-none focus:ring-0 text-lg placeholder:text-gray-400 font-medium"
                   />
                 </div>
                 <div className="flex gap-2 w-full">
-                  <div className="bg-white rounded-lg px-4 py-4 text-gray-900 flex items-center shadow-lg h-16 relative flex-1">
+                  <div className="bg-white rounded-lg px-4 py-4 text-gray-900 flex items-center shadow-lg border border-blue-100 h-16 relative flex-1">
                     <input
                       type="text"
                       placeholder="Secteur ou OPCO identifié ?"
                       value={matchedSector || ""}
                       readOnly
-                      className="w-full bg-transparent border-none outline-none focus:ring-0 text-lg placeholder:text-gray-500 font-medium text-ellipsis overflow-hidden"
+                      className="w-full bg-transparent border-none outline-none focus:ring-0 text-lg placeholder:text-gray-400 font-medium text-ellipsis overflow-hidden"
                     />
                     {!matchedSector && domaine && (
                       <span className="absolute right-4 text-sm text-gray-400">Recherche...</span>
@@ -81,9 +81,9 @@ const Hero = () => {
                       const contactSection = document.getElementById("contact");
                       if (contactSection) contactSection.scrollIntoView({ behavior: "smooth" });
                     }}
-                    className="w-16 h-16 bg-[#00E5A3] hover:bg-[#00E5A3]/90 rounded-lg flex items-center justify-center shrink-0 shadow-lg transition-transform hover:scale-105"
+                    className="w-16 h-16 bg-primary hover:bg-primary/90 rounded-lg flex items-center justify-center shrink-0 shadow-lg transition-transform hover:scale-105"
                   >
-                    <Search className="w-8 h-8 text-[#3B24D9]" />
+                    <Search className="w-8 h-8 text-white" />
                   </Button>
                 </div>
               </div>
@@ -92,9 +92,9 @@ const Hero = () => {
                   type="checkbox"
                   id="particulier"
                   defaultChecked
-                  className="w-5 h-5 rounded-[4px] border-2 border-white/40 bg-transparent text-[#00E5A3] focus:ring-[#00E5A3] focus:ring-offset-0 focus:ring-2 appearance-none checked:bg-[#00E5A3] checked:border-[#00E5A3] relative after:content-['✓'] after:absolute after:text-[#3B24D9] after:text-xs after:font-bold after:left-1/2 after:top-1/2 after:-translate-x-1/2 after:-translate-y-1/2 after:opacity-0 checked:after:opacity-100 transition-colors"
+                  className="w-5 h-5 rounded-[4px] border-2 border-primary/40 bg-white text-primary focus:ring-primary focus:ring-offset-0 focus:ring-2 appearance-none checked:bg-primary checked:border-primary relative after:content-['✓'] after:absolute after:text-white after:text-xs after:font-bold after:left-1/2 after:top-1/2 after:-translate-x-1/2 after:-translate-y-1/2 after:opacity-0 checked:after:opacity-100 transition-colors"
                 />
-                <label htmlFor="particulier" className="text-base font-medium cursor-pointer">
+                <label htmlFor="particulier" className="text-base font-medium cursor-pointer text-gray-700">
                   Finançable CPF / OPCO
                 </label>
               </div>
