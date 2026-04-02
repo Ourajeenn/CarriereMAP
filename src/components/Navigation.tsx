@@ -9,8 +9,9 @@ const Navigation = () => {
 
   const navItems = [
     { icon: Home, label: "Accueil", href: "/" },
-    { icon: BookOpen, label: "Comment ça marche", href: "#comment-ca-marche" },
-    { icon: Briefcase, label: "Secteurs accompagnés", href: "#secteurs" },
+    { icon: Award, label: "Solutions Financement", href: "#solutions" },
+    { icon: Briefcase, label: "Secteurs & OPCO", href: "#secteurs" },
+    { icon: BookOpen, label: "Ressources", href: "#ressources" },
   ];
 
   return (

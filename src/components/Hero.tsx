@@ -115,18 +115,27 @@ const Hero = () => {
               >
                 <CarouselContent>
                   <CarouselItem>
-                    <div className="aspect-[4/3] rounded-2xl overflow-hidden">
-                      <img src={carousel1} alt="Professionnels" className="w-full h-full object-cover" />
+                    <div className="aspect-[4/3] rounded-2xl overflow-hidden relative group">
+                      <img src={carousel1} alt="Professionnels" className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
+                      <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 to-transparent p-6 pt-12">
+                        <p className="text-white font-bold text-lg leading-tight">Optimisez votre budget formation avec les OPCO</p>
+                      </div>
                     </div>
                   </CarouselItem>
                   <CarouselItem>
-                    <div className="aspect-[4/3] rounded-2xl overflow-hidden">
-                      <img src={carousel2} alt="Mentorat" className="w-full h-full object-cover" />
+                    <div className="aspect-[4/3] rounded-2xl overflow-hidden relative group">
+                      <img src={carousel2} alt="Mentorat" className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
+                      <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 to-transparent p-6 pt-12">
+                        <p className="text-white font-bold text-lg leading-tight">Transformez votre expérience en diplôme d'État (VAE)</p>
+                      </div>
                     </div>
                   </CarouselItem>
                   <CarouselItem>
-                    <div className="aspect-[4/3] rounded-2xl overflow-hidden">
-                      <img src={carousel3} alt="Réussite" className="w-full h-full object-cover" />
+                    <div className="aspect-[4/3] rounded-2xl overflow-hidden relative group">
+                      <img src={carousel3} alt="Réussite" className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
+                      <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 to-transparent p-6 pt-12">
+                        <p className="text-white font-bold text-lg leading-tight">Un accompagnement sur-mesure pour votre réussite</p>
+                      </div>
                     </div>
                   </CarouselItem>
                 </CarouselContent>
