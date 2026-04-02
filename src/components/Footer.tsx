@@ -86,15 +86,16 @@ const Footer = () => {
           <p className="text-sm text-muted-foreground">
             © {new Date().getFullYear()} CarriereMAP. Tous droits réservés.
           </p>
-          <div className="flex gap-6 text-sm text-muted-foreground">
+          <div className="flex flex-wrap gap-6 text-sm text-muted-foreground">
+            <Link to="/privacy" className="hover:text-primary transition-colors flex items-center gap-1">
+              <span className="w-1.5 h-1.5 rounded-full bg-green-500" />
+              Conformité RGPD
+            </Link>
+            <Link to="/legal" className="hover:text-primary transition-colors">
+              Mentions Légales
+            </Link>
             <Link to="/privacy" className="hover:text-primary transition-colors">
               Confidentialité
-            </Link>
-            <Link to="/terms" className="hover:text-primary transition-colors">
-              Conditions
-            </Link>
-            <Link to="/cookies" className="hover:text-primary transition-colors">
-              Cookies
             </Link>
           </div>
         </div>

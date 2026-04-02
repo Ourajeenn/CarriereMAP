@@ -45,35 +45,58 @@ const Hero = () => {
     <section className="relative pt-32 pb-40 lg:pt-48 lg:pb-64 bg-blue-50/50 text-gray-900 overflow-hidden">
       <div className="container mx-auto px-4 relative z-10 w-full">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
-          <div className="max-w-2xl">
-            <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold mb-8 leading-[1.1] tracking-tight">
-              <span className="text-primary">De votre domaine à votre OPCO,</span>
-              <br />
-              et forcément le bon accompagnement.
+          <div className="max-w-3xl">
+            <div className="inline-flex items-center gap-2 px-3 py-1 bg-white/50 backdrop-blur-sm rounded-full border border-primary/20 text-primary text-[10px] font-bold uppercase tracking-widest mb-6 shadow-sm">
+              <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
+              ✓ Gratuit • Sans engagement
+            </div>
+
+            <h1 className="text-4xl md:text-5xl lg:text-[42px] font-black mb-6 leading-tight tracking-tight text-gray-900 uppercase">
+              Identifier votre <span className="text-primary italic">OPCO</span> et financez <br className="hidden md:block" /> vos formations professionnelles
             </h1>
 
-            <div className="flex flex-col space-y-4 max-w-xl mt-12">
+            <p className="text-lg md:text-[18px] text-gray-500 mb-10 max-w-xl leading-relaxed">
+              L'aiguillage intelligent qui transforme votre secteur d'activité en solution de financement concrète. Simple, rapide et 100% conforme.
+            </p>
+
+            <div className="flex flex-col sm:flex-row gap-4 mb-12">
+              <Button
+                onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}
+                className="bg-primary hover:bg-primary/90 text-white font-bold h-14 px-8 rounded-full text-lg shadow-xl shadow-primary/20 transition-all hover:scale-105"
+              >
+                Identifier mon OPCO
+              </Button>
+              <Button
+                variant="outline"
+                onClick={() => document.getElementById("comment-ca-marche")?.scrollIntoView({ behavior: "smooth" })}
+                className="bg-white/50 hover:bg-white text-gray-700 font-bold h-14 px-8 rounded-full text-lg border-gray-200"
+              >
+                En savoir plus
+              </Button>
+            </div>
+
+            <div className="flex flex-col space-y-4 max-w-xl mt-12 bg-white/40 p-6 rounded-3xl backdrop-blur-sm border border-white/60 shadow-inner">
               <div className="flex flex-col gap-2">
-                <div className="bg-white rounded-lg px-4 py-4 text-gray-900 flex items-center shadow-lg border border-blue-100 h-16 w-full">
+                <div className="bg-white rounded-xl px-4 py-4 text-gray-900 flex items-center shadow-lg border border-blue-100 h-16 w-full group focus-within:ring-2 ring-primary/20 transition-all">
                   <input
                     type="text"
                     value={domaine}
                     onChange={(e) => setDomaine(e.target.value)}
-                    placeholder="Diplôme, métier, domaine..."
-                    className="w-full bg-transparent border-none outline-none focus:ring-0 text-lg placeholder:text-gray-400 font-medium"
+                    placeholder="Votre métier ou domaine..."
+                    className="w-full bg-transparent border-none outline-none focus:ring-0 text-lg placeholder:text-gray-400 font-bold"
                   />
                 </div>
                 <div className="flex gap-2 w-full">
-                  <div className="bg-white rounded-lg px-4 py-4 text-gray-900 flex items-center shadow-lg border border-blue-100 h-16 relative flex-1">
+                  <div className="bg-white rounded-xl px-4 py-4 text-gray-900 flex items-center shadow-lg border border-blue-100 h-16 relative flex-1 group focus-within:ring-2 ring-primary/20 transition-all">
                     <input
                       type="text"
-                      placeholder="Secteur ou OPCO identifié ?"
+                      placeholder="Secteur ou OPCO..."
                       value={matchedSector || ""}
                       readOnly
-                      className="w-full bg-transparent border-none outline-none focus:ring-0 text-lg placeholder:text-gray-400 font-medium text-ellipsis overflow-hidden"
+                      className="w-full bg-transparent border-none outline-none focus:ring-0 text-lg placeholder:text-gray-400 font-bold text-ellipsis overflow-hidden text-primary"
                     />
                     {!matchedSector && domaine && (
-                      <span className="absolute right-4 text-sm text-gray-400">Recherche...</span>
+                      <span className="absolute right-4 text-[10px] font-black uppercase text-gray-300 animate-pulse">Analyse...</span>
                     )}
                   </div>
                   <Button
@@ -81,7 +104,7 @@ const Hero = () => {
                       const contactSection = document.getElementById("contact");
                       if (contactSection) contactSection.scrollIntoView({ behavior: "smooth" });
                     }}
-                    className="w-16 h-16 bg-primary hover:bg-primary/90 rounded-lg flex items-center justify-center shrink-0 shadow-lg transition-transform hover:scale-105"
+                    className="w-16 h-16 bg-gray-900 hover:bg-gray-800 rounded-xl flex items-center justify-center shrink-0 shadow-lg transition-transform hover:scale-105"
                   >
                     <Search className="w-8 h-8 text-white" />
                   </Button>
@@ -92,10 +115,10 @@ const Hero = () => {
                   type="checkbox"
                   id="particulier"
                   defaultChecked
-                  className="w-5 h-5 rounded-[4px] border-2 border-primary/40 bg-white text-primary focus:ring-primary focus:ring-offset-0 focus:ring-2 appearance-none checked:bg-primary checked:border-primary relative after:content-['✓'] after:absolute after:text-white after:text-xs after:font-bold after:left-1/2 after:top-1/2 after:-translate-x-1/2 after:-translate-y-1/2 after:opacity-0 checked:after:opacity-100 transition-colors"
+                  className="w-5 h-5 rounded-md border-2 border-primary/40 bg-white text-primary focus:ring-primary focus:ring-offset-0 focus:ring-2 appearance-none checked:bg-primary checked:border-primary relative after:content-['✓'] after:absolute after:text-white after:text-xs after:font-bold after:left-1/2 after:top-1/2 after:-translate-x-1/2 after:-translate-y-1/2 after:opacity-0 checked:after:opacity-100 transition-colors cursor-pointer"
                 />
-                <label htmlFor="particulier" className="text-base font-medium cursor-pointer text-gray-700">
-                  Finançable CPF / OPCO
+                <label htmlFor="particulier" className="text-sm font-bold cursor-pointer text-gray-600 uppercase tracking-wide">
+                  Accès Financement CPF / OPCO
                 </label>
               </div>
             </div>
