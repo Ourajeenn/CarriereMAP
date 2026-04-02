@@ -12,6 +12,7 @@ import GuideOPCO from "./pages/GuideOPCO";
 import PourQui from "./pages/PourQui";
 import Diagnostic from "./pages/Diagnostic";
 import Blog from "./pages/Blog";
+import FAQPage from "./pages/FAQPage";
 import CaseStudies from "./pages/CaseStudies";
 import NotFound from "./pages/NotFound";
 import LoadingScreen from "./components/LoadingScreen";
@@ -24,7 +25,7 @@ const App = () => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setLoading(false);
-    }, 2500);
+    }, 800);
     return () => clearTimeout(timer);
   }, []);
 

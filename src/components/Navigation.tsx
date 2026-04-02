@@ -42,8 +42,8 @@ const Navigation = () => {
           </div>
 
           <div className="hidden lg:flex items-center gap-3">
-            <Link to="/auth">
-              <Button variant="ghost" className="text-[13px] font-black uppercase tracking-widest text-gray-400 hover:text-primary">
+            <Link to="/dashboard">
+              <Button variant="ghost" className="text-[13px] font-black uppercase tracking-widest text-gray-400 hover:text-primary transition-colors">
                 Espace Pro
               </Button>
             </Link>

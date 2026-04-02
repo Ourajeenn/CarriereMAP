@@ -77,7 +77,7 @@ const Blog = () => {
 
                     <div className="grid md:grid-cols-2 gap-12">
                         {blogPosts.map((post, idx) => (
-                            <Link key={idx} to="#" className="group">
+                            <Link key={idx} to="/diagnostic" className="group">
                                 <Card className="border-none bg-white overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-500 rounded-3xl h-full flex flex-col">
                                     <div className="h-64 overflow-hidden relative">
                                         <div className="absolute top-4 left-4 z-10">
