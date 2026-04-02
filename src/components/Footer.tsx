@@ -1,33 +1,33 @@
-import { GraduationCap, Facebook, Twitter, Instagram, Linkedin } from "lucide-react";
+import { Briefcase, Facebook, Twitter, Instagram, Linkedin } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const Footer = () => {
   const sections = [
     {
-      title: "Plateforme",
+      title: "Solutions",
       links: [
         { label: "Accueil", href: "/" },
-        { label: "Test d'orientation", href: "/test" },
-        { label: "Formations", href: "/formations" },
-        { label: "Mentorat", href: "/mentorat" },
+        { label: "Dispositif OPCO", href: "/opco" },
+        { label: "Formations Professionnelles", href: "/formations" },
+        { label: "Accompagnement VAE", href: "/vae" },
       ],
     },
     {
       title: "Ressources",
       links: [
-        { label: "Blog", href: "/blog" },
-        { label: "Guides", href: "/guides" },
-        { label: "Événements", href: "/evenements" },
-        { label: "FAQ", href: "/faq" },
+        { label: "Blog B2B", href: "/blog" },
+        { label: "Guides Financement", href: "/guides" },
+        { label: "Actualités Formation", href: "/news" },
+        { label: "FAQ Conseillers", href: "/faq" },
       ],
     },
     {
       title: "À propos",
       links: [
-        { label: "Notre mission", href: "/about" },
-        { label: "Partenaires", href: "/partners" },
-        { label: "Contact", href: "/contact" },
-        { label: "Carrières", href: "/careers" },
+        { label: "Notre expertise", href: "/about" },
+        { label: "Partenaires OPCO", href: "/partners" },
+        { label: "Contact Expert", href: "/contact" },
+        { label: "Dashboard Conseiller", href: "/dashboard" },
       ],
     },
   ];
@@ -39,13 +39,13 @@ const Footer = () => {
           <div className="lg:col-span-2 space-y-4">
             <Link to="/" className="flex items-center gap-2">
               <div className="w-10 h-10 rounded-xl bg-gradient-primary flex items-center justify-center">
-                <GraduationCap className="w-6 h-6 text-white" />
+                <Briefcase className="w-6 h-6 text-white" />
               </div>
               <span className="text-2xl font-bold gradient-text">CarriereMAP</span>
             </Link>
             <p className="text-muted-foreground max-w-sm">
-              Votre plateforme d'orientation académique et professionnelle intelligente.
-              De la 4ème à la vie active.
+              L'aiguillage intelligent pour le financement de vos formations.
+              Optimisez vos droits CPF et budgets OPCO.
             </p>
             <div className="flex gap-3">
               <a href="#" className="w-10 h-10 rounded-lg glass hover:bg-primary/10 flex items-center justify-center transition-colors">

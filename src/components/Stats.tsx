@@ -5,25 +5,25 @@ const Stats = () => {
     {
       icon: Users,
       value: "50,000+",
-      label: "Étudiants accompagnés",
+      label: "Professionnels accompagnés",
       color: "text-primary",
     },
     {
       icon: Award,
       value: "500+",
-      label: "Formations référencées",
+      label: "Formations certifiantes",
       color: "text-energy",
     },
     {
       icon: Globe,
       value: "40+",
-      label: "Pays couverts",
+      label: "OPCO & Secteurs couverts",
       color: "text-primary",
     },
     {
       icon: TrendingUp,
       value: "95%",
-      label: "Taux de satisfaction",
+      label: "Taux de réussite CPF",
       color: "text-energy",
     },
   ];
