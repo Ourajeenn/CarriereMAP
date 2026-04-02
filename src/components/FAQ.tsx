@@ -11,6 +11,30 @@ import { MessageSquare, Sparkles, Send, User, Bot, X } from "lucide-react";
 
 const FAQ = () => {
     const [isChatOpen, setIsChatOpen] = useState(false);
+    const [messages, setMessages] = useState([
+        { role: "bot", content: "Bonjour ! Je suis l'expert IA de CarriereMAP. Posez-moi vos questions sur les budgets OPCO, le CPF ou les barèmes 2026." }
+    ]);
+    const [inputValue, setInputValue] = useState("");
+    const [isTyping, setIsTyping] = useState(false);
+
+    const handleSendMessage = () => {
+        if (!inputValue.trim()) return;
+
+        const userMsg = { role: "user", content: inputValue };
+        setMessages(prev => [...prev, userMsg]);
+        setInputValue("");
+        setIsTyping(true);
+
+        // Simulated AI response
+        setTimeout(() => {
+            let response = "Votre éligibilité semble confirmée. Souhaitez-vous lancer le diagnostic complet ?";
+            if (inputValue.toLowerCase().includes("atlas")) response = "L'OPCO Atlas a relevé ses plafonds de 5% pour le numérique en 2026. C'est le moment idéal pour lancer vos projets.";
+            if (inputValue.toLowerCase().includes("santé") || inputValue.toLowerCase().includes("sante")) response = "L'OPCO Santé privilégie actuellement les parcours VAE et les formations en management médico-social.";
+
+            setMessages(prev => [...prev, { role: "bot", content: response }]);
+            setIsTyping(false);
+        }, 1500);
+    };
 
     const faqs = [
         {
@@ -51,88 +75,107 @@ const FAQ = () => {
                         <Sparkles className="w-3 h-3" /> Aide Intelligente
                     </div>
                     <h2 className="text-3xl md:text-4xl font-black text-gray-900 tracking-tight uppercase">Questions <span className="text-primary italic">Stratégiques</span></h2>
-                    <p className="text-gray-500 font-medium">Tout ce qu'il faut savoir pour sécuriser vos budgets de formation.</p>
+                    <p className="text-gray-500 font-medium font-sans">Tout ce qu'il faut savoir pour sécuriser vos budgets de formation.</p>
                 </div>
 
                 <Accordion type="single" collapsible className="w-full space-y-4">
                     {faqs.map((faq, index) => (
                         <AccordionItem key={index} value={`item-${index}`} className="border-none rounded-2xl px-6 bg-gray-50/50 hover:bg-white transition-all duration-300 shadow-sm hover:shadow-md">
-                            <AccordionTrigger className="text-left font-bold text-gray-900 hover:text-primary transition-colors py-6 text-lg tracking-tight hover:no-underline">
+                            <AccordionTrigger className="text-left font-bold text-gray-900 hover:text-primary transition-colors py-6 text-lg tracking-tight hover:no-underline font-sans">
                                 {faq.question}
                             </AccordionTrigger>
-                            <AccordionContent className="text-gray-600 pb-6 leading-relaxed font-medium">
+                            <AccordionContent className="text-gray-600 pb-6 leading-relaxed font-medium font-sans">
                                 {faq.answer}
                             </AccordionContent>
                         </AccordionItem>
                     ))}
                 </Accordion>
 
-                <div className="mt-16 p-8 bg-gray-900 rounded-3xl text-white flex flex-col md:flex-row items-center justify-between gap-8 text-center md:text-left">
+                <div className="mt-16 p-8 bg-gray-900 rounded-3xl text-white flex flex-col md:flex-row items-center justify-between gap-8 text-center md:text-left shadow-2xl">
                     <div className="space-y-2">
-                        <h3 className="text-2xl font-bold">Besoin d'une réponse immédiate ?</h3>
-                        <p className="text-gray-400">Notre IA est entraînée sur les dernières directives OPCO 2026.</p>
+                        <h3 className="text-2xl font-bold font-sans">Besoin d'une réponse immédiate ?</h3>
+                        <p className="text-gray-400 font-sans">Notre IA est entraînée sur les dernières directives OPCO 2026.</p>
                     </div>
                     <Button
                         onClick={() => setIsChatOpen(true)}
-                        className="bg-primary hover:bg-primary/90 text-white rounded-full px-8 h-14 font-black uppercase tracking-widest shadow-xl shadow-primary/20"
+                        className="bg-primary hover:bg-primary-dark text-white rounded-full px-8 h-14 font-black uppercase tracking-widest shadow-xl shadow-primary/20 transition-all hover:scale-105"
                     >
                         Lancer le Chat IA
                     </Button>
                 </div>
             </div>
 
-            {/* Chatbot Overlay Simulation */}
+            {/* Chatbot Overlay */}
             {isChatOpen && (
-                <div className="fixed bottom-6 right-6 w-full max-w-[400px] h-[500px] z-[100] animate-slide-in">
-                    <Card className="h-full flex flex-col shadow-2xl border-none overflow-hidden rounded-3xl">
+                <div className="fixed bottom-6 right-6 w-full max-w-[400px] h-[550px] z-[100] animate-slide-in">
+                    <Card className="h-full flex flex-col shadow-2xl border-none overflow-hidden rounded-3xl bg-white">
                         <div className="bg-primary p-4 text-white flex items-center justify-between">
                             <div className="flex items-center gap-3">
                                 <div className="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center">
-                                    <Bot className="w-6 h-6" />
+                                    <Bot className="w-6 h-6 text-white" />
                                 </div>
-                                <div>
-                                    <p className="font-bold text-sm">Assistant CarriereMAP</p>
-                                    <p className="text-[10px] opacity-80 uppercase font-black tracking-widest">En ligne</p>
+                                <div className="text-left">
+                                    <p className="font-bold text-sm text-white">Assistant IA</p>
+                                    <p className="text-[10px] opacity-80 uppercase font-black tracking-widest text-white">Expert Budget 2026</p>
                                 </div>
                             </div>
-                            <button onClick={() => setIsChatOpen(false)} className="p-2 hover:bg-white/10 rounded-full">
+                            <button onClick={() => setIsChatOpen(false)} className="p-2 hover:bg-white/10 rounded-full text-white">
                                 <X className="w-5 h-5" />
                             </button>
                         </div>
-                        <div className="flex-1 p-4 bg-blue-50/30 overflow-y-auto space-y-4">
-                            <div className="flex gap-2">
-                                <div className="w-8 h-8 rounded-full bg-primary flex items-center justify-center shrink-0">
-                                    <Bot className="w-4 h-4 text-white" />
+
+                        <div className="flex-1 p-4 bg-blue-50/20 overflow-y-auto space-y-4">
+                            {messages.map((msg, i) => (
+                                <div key={i} className={`flex gap-2 ${msg.role === "user" ? "justify-end" : ""}`}>
+                                    {msg.role === "bot" && (
+                                        <div className="w-8 h-8 rounded-full bg-primary flex items-center justify-center shrink-0">
+                                            <Bot className="w-4 h-4 text-white" />
+                                        </div>
+                                    )}
+                                    <div className={`p-4 rounded-2xl shadow-sm text-sm font-medium font-sans max-w-[85%] ${msg.role === "user"
+                                            ? "bg-primary text-white rounded-tr-none"
+                                            : "bg-white text-gray-700 rounded-tl-none border border-blue-100"
+                                        }`}>
+                                        {msg.content}
+                                    </div>
+                                    {msg.role === "user" && (
+                                        <div className="w-8 h-8 rounded-full bg-gray-200 flex items-center justify-center shrink-0">
+                                            <User className="w-4 h-4 text-gray-500" />
+                                        </div>
+                                    )}
                                 </div>
-                                <div className="bg-white p-3 rounded-2xl rounded-tl-none shadow-sm text-sm text-gray-700 font-medium max-w-[80%]">
-                                    Bonjour ! Je suis l'expert IA de CarriereMAP. Posez-moi vos questions sur les budgets OPCO, le CPF ou les barèmes 2026.
+                            ))}
+                            {isTyping && (
+                                <div className="flex gap-2">
+                                    <div className="w-8 h-8 rounded-full bg-primary flex items-center justify-center shrink-0">
+                                        <Bot className="w-4 h-4 text-white" />
+                                    </div>
+                                    <div className="bg-white p-4 rounded-2xl rounded-tl-none border border-blue-100 shadow-sm">
+                                        <div className="flex gap-1">
+                                            <div className="w-1 h-1 bg-primary rounded-full animate-bounce" />
+                                            <div className="w-1 h-1 bg-primary rounded-full animate-bounce [animation-delay:0.2s]" />
+                                            <div className="w-1 h-1 bg-primary rounded-full animate-bounce [animation-delay:0.4s]" />
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                            <div className="flex gap-2 justify-end">
-                                <div className="bg-primary p-3 rounded-2xl rounded-tr-none shadow-sm text-sm text-white font-medium max-w-[80%]">
-                                    Quel est le plafond de l'OPCO Atlas pour une formation dev ?
-                                </div>
-                                <div className="w-8 h-8 rounded-full bg-gray-200 flex items-center justify-center shrink-0">
-                                    <User className="w-4 h-4 text-gray-500" />
-                                </div>
-                            </div>
-                            <div className="flex gap-2">
-                                <div className="w-8 h-8 rounded-full bg-primary flex items-center justify-center shrink-0">
-                                    <Bot className="w-4 h-4 text-white" />
-                                </div>
-                                <div className="bg-white p-3 rounded-2xl rounded-tl-none shadow-sm text-sm text-gray-700 font-medium max-w-[80%]">
-                                    Pour l'OPCO Atlas en 2026, le plafond moyen pour les formations numériques (hors alternance) se situe entre 35€ et 50€ de l'heure. Souhaitez-vous que je vérifie pour un code NAF spécifique ?
-                                </div>
-                            </div>
+                            )}
                         </div>
+
                         <div className="p-4 bg-white border-t flex gap-2">
                             <input
                                 type="text"
-                                placeholder="Tapez votre question..."
-                                className="flex-1 bg-gray-50 border-none rounded-full px-4 text-sm outline-none focus:ring-2 ring-primary/20"
+                                value={inputValue}
+                                onChange={(e) => setInputValue(e.target.value)}
+                                onKeyDown={(e) => e.key === "Enter" && handleSendMessage()}
+                                placeholder="Posez votre question..."
+                                className="flex-1 bg-gray-50 border border-gray-100 rounded-full px-5 text-sm h-12 outline-none focus:ring-2 ring-primary/20 transition-all font-sans"
                             />
-                            <Button size="icon" className="rounded-full w-10 h-10 bg-primary">
-                                <Send className="w-4 h-4" />
+                            <Button
+                                onClick={handleSendMessage}
+                                size="icon"
+                                className="rounded-full w-12 h-12 bg-primary shadow-lg shadow-primary/20 hover:scale-110 transition-transform"
+                            >
+                                <Send className="w-4 h-4 text-white" />
                             </Button>
                         </div>
                     </Card>

@@ -102,9 +102,9 @@ const PourQui = () => {
                             </div>
 
                             <div className="relative z-10 pt-8">
-                                <Button variant="outline" className="w-full justify-between items-center group/btn rounded-xl border-gray-200 hover:border-primary hover:text-primary transition-all" asChild>
+                                <Button className="w-full justify-between items-center group/btn rounded-xl bg-primary hover:bg-primary-dark text-white shadow-lg shadow-primary/20 transition-all font-black uppercase tracking-widest text-xs h-12 px-6" asChild>
                                     <Link to="/diagnostic">
-                                        <span>Consulter le mini-guide</span>
+                                        <span>Consulter le guide</span>
                                         <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
                                     </Link>
                                 </Button>

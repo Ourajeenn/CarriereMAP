@@ -102,14 +102,20 @@ const GuideOPCO = () => {
 
                     <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
                         {opcoList.map((opco, idx) => (
-                            <Card key={idx} className="p-6 hover:shadow-xl transition-all cursor-pointer border-none bg-white group hover:-translate-y-2">
-                                <div className="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center text-primary font-black mb-4 group-hover:bg-primary group-hover:text-white transition-colors">
+                            <Card
+                                key={idx}
+                                onClick={() => {
+                                    document.getElementById('comparison-table')?.scrollIntoView({ behavior: 'smooth' });
+                                }}
+                                className="p-6 hover:shadow-2xl transition-all cursor-pointer border-none bg-white group hover:-translate-y-2 border-b-2 border-transparent hover:border-primary active:scale-95"
+                            >
+                                <div className="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center text-primary font-black mb-4 group-hover:bg-primary group-hover:text-white transition-all duration-300">
                                     {opco.logo}
                                 </div>
-                                <h3 className="font-bold text-gray-900 mb-1">{opco.name}</h3>
-                                <p className="text-xs text-gray-500 font-medium">{opco.sector}</p>
-                                <div className="mt-4 pt-4 border-t border-gray-100 flex items-center justify-between text-primary font-bold text-xs uppercase tracking-widest">
-                                    Consulter barèmes <ArrowRight className="w-3 h-3" />
+                                <h3 className="font-bold text-gray-900 mb-1 font-sans">{opco.name}</h3>
+                                <p className="text-xs text-gray-500 font-medium font-sans">{opco.sector}</p>
+                                <div className="mt-4 pt-4 border-t border-gray-100 flex items-center justify-between text-primary font-black text-[10px] uppercase tracking-widest group-hover:text-primary-dark transition-colors">
+                                    Consulter barèmes <ArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
                                 </div>
                             </Card>
                         ))}
@@ -124,7 +130,7 @@ const GuideOPCO = () => {
                     <p className="text-gray-500 max-w-2xl mx-auto">Estimation moyenne des plafonds par type de formation (Données 2025-2026).</p>
                 </div>
 
-                <div className="overflow-x-auto rounded-3xl border border-gray-100 shadow-2xl">
+                <div id="comparison-table" className="overflow-x-auto rounded-3xl border border-gray-100 shadow-2xl">
                     <table className="w-full text-left">
                         <thead className="bg-gray-900 text-white text-xs font-black uppercase tracking-widest">
                             <tr>
