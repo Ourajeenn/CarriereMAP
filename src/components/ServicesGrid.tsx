@@ -63,12 +63,12 @@ const ServicesGrid = () => {
                             onClick={() => setActiveModal("cpf")}
                             className="bg-white rounded-[1rem] shadow-[0_8px_30px_rgb(0,0,0,0.08)] p-8 lg:w-[28%] flex flex-col items-center text-center cursor-pointer transition-transform hover:-translate-y-1 hover:shadow-xl"
                         >
-                            <div className="text-[#3B24D9] mb-6 mt-4">
+                            <div className="text-primary mb-6 mt-4">
                                 <CreditCard className="w-12 h-12 stroke-[1.5]" />
                             </div>
                             <h3 className="font-bold text-lg text-gray-900 mb-3">{servicesData.cpf.title}</h3>
                             <p className="text-gray-500 text-sm mb-6 flex-1 leading-relaxed">{servicesData.cpf.shortDesc}</p>
-                            <Button className="w-full bg-[#3B24D9] hover:bg-[#3B24D9]/90 text-white rounded-full h-12 text-base">
+                            <Button className="w-full bg-primary hover:bg-primary/90 text-white rounded-full h-12 text-base">
                                 En savoir plus
                             </Button>
                         </div>
@@ -82,7 +82,7 @@ const ServicesGrid = () => {
                                     onClick={() => setActiveModal("vae")}
                                     className="bg-white rounded-[1rem] shadow-[0_8px_30px_rgb(0,0,0,0.08)] p-6 flex-1 flex flex-col items-center justify-center text-center cursor-pointer transition-transform hover:-translate-y-1 hover:shadow-xl"
                                 >
-                                    <div className="text-[#3B24D9] mb-3">
+                                    <div className="text-primary mb-3">
                                         <FileSignature className="w-10 h-10 stroke-[1.5]" />
                                     </div>
                                     <h3 className="font-bold text-gray-900 text-[15px] mb-2">{servicesData.vae.title}</h3>
@@ -92,7 +92,7 @@ const ServicesGrid = () => {
                                     onClick={() => setActiveModal("pro")}
                                     className="bg-white rounded-[1rem] shadow-[0_8px_30px_rgb(0,0,0,0.08)] p-6 min-h-[180px] flex flex-col items-center justify-center text-center cursor-pointer transition-transform hover:-translate-y-1 hover:shadow-xl"
                                 >
-                                    <div className="text-[#3B24D9] mb-3">
+                                    <div className="text-primary mb-3">
                                         <Puzzle className="w-10 h-10 stroke-[1.5]" />
                                     </div>
                                     <h3 className="font-bold text-gray-900 text-[15px] mb-2">{servicesData.pro.title}</h3>
@@ -106,7 +106,7 @@ const ServicesGrid = () => {
                                     onClick={() => setActiveModal("alternance")}
                                     className="bg-white rounded-[1rem] shadow-[0_8px_30px_rgb(0,0,0,0.08)] p-6 min-h-[180px] flex flex-col items-center justify-center text-center cursor-pointer transition-transform hover:-translate-y-1 hover:shadow-xl"
                                 >
-                                    <div className="text-[#3B24D9] mb-3">
+                                    <div className="text-primary mb-3">
                                         <GraduationCap className="w-10 h-10 stroke-[1.5]" />
                                     </div>
                                     <h3 className="font-bold text-gray-900 text-[15px] mb-2">{servicesData.alternance.title}</h3>
@@ -116,7 +116,7 @@ const ServicesGrid = () => {
                                     onClick={() => setActiveModal("ligne")}
                                     className="bg-white rounded-[1rem] shadow-[0_8px_30px_rgb(0,0,0,0.08)] p-6 flex-1 flex flex-col items-center justify-center text-center cursor-pointer transition-transform hover:-translate-y-1 hover:shadow-xl"
                                 >
-                                    <div className="text-[#3B24D9] mb-3">
+                                    <div className="text-primary mb-3">
                                         <Laptop className="w-10 h-10 stroke-[1.5]" />
                                     </div>
                                     <h3 className="font-bold text-gray-900 text-[15px] mb-2">{servicesData.ligne.title}</h3>
@@ -131,12 +131,12 @@ const ServicesGrid = () => {
                             onClick={() => setActiveModal("bilan")}
                             className="bg-white rounded-[1rem] shadow-[0_8px_30px_rgb(0,0,0,0.08)] p-8 lg:w-[28%] flex flex-col items-center text-center cursor-pointer transition-transform hover:-translate-y-1 hover:shadow-xl"
                         >
-                            <div className="text-[#331DB3] mb-6 mt-4">
+                            <div className="text-primary mb-6 mt-4">
                                 <Target className="w-12 h-12 stroke-[1.5]" />
                             </div>
                             <h3 className="font-bold text-lg text-gray-900 mb-3">{servicesData.bilan.title}</h3>
                             <p className="text-gray-500 text-sm mb-6 flex-1 leading-relaxed">{servicesData.bilan.shortDesc}</p>
-                            <Button className="w-full bg-[#331DB3] hover:bg-[#331DB3]/90 text-white rounded-full h-12 text-base">
+                            <Button className="w-full bg-primary hover:bg-primary/90 text-white rounded-full h-12 text-base">
                                 En savoir plus
                             </Button>
                         </div>
@@ -159,7 +159,7 @@ const ServicesGrid = () => {
                             <X className="w-5 h-5" />
                         </button>
 
-                        <div className="text-[#331DB3] mb-5 bg-blue-50 w-16 h-16 rounded-2xl flex items-center justify-center">
+                        <div className="text-primary mb-5 bg-blue-50 w-16 h-16 rounded-2xl flex items-center justify-center">
                             {servicesData[activeModal].icon && (() => {
                                 const Icon = servicesData[activeModal].icon;
                                 return <Icon className="w-8 h-8 stroke-[1.5]" />;
@@ -177,7 +177,7 @@ const ServicesGrid = () => {
                         <div className="flex flex-col sm:flex-row gap-3">
                             <Button
                                 onClick={handleScrollToContact}
-                                className="w-full bg-[#331DB3] hover:bg-[#331DB3]/90 text-white rounded-full h-12"
+                                className="w-full bg-primary hover:bg-primary/90 text-white rounded-full h-12"
                             >
                                 Je souhaite un accompagnement <ArrowRight className="ml-2 w-4 h-4" />
                             </Button>
