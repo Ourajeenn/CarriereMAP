@@ -9,16 +9,21 @@ const Navigation = () => {
 
   const navItems = [
     { icon: Home, label: "Accueil", href: "/" },
-    { icon: Award, label: "Solutions Financement", href: "#solutions" },
-    { icon: Briefcase, label: "Secteurs & OPCO", href: "#secteurs" },
-    { icon: BookOpen, label: "Ressources", href: "#ressources" },
+    { icon: School, label: "Guide OPCO", href: "/guide-opco" },
+    { icon: Users, label: "Pour qui ?", href: "/pour-qui" },
+    { icon: Award, label: "Diagnostic", href: "/diagnostic" },
+    { icon: MessageSquare, label: "FAQ", href: "/faq" },
+    { icon: BookOpen, label: "Blog", href: "/blog" },
   ];
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 glass">
-      <div className="container mx-auto px-4 py-4">
+    <nav className="fixed top-0 left-0 right-0 z-50 glass border-b border-white/20">
+      <div className="container mx-auto px-4 py-3">
         <div className="flex items-center justify-between">
-          <Link to="/" className="flex items-center gap-2">
+          <Link
+            to="/"
+            className="flex items-center gap-2 hover:scale-105 transition-transform"
+          >
             <img src={logo} alt="CarriereMAP" className="h-10 w-auto" />
           </Link>
 
@@ -28,9 +33,9 @@ const Navigation = () => {
               <Link
                 key={item.href}
                 to={item.href}
-                className="flex items-center gap-2 text-sm font-medium text-foreground/80 hover:text-primary transition-colors"
+                className="flex items-center gap-2 text-[13px] font-bold uppercase tracking-tight text-gray-600 hover:text-primary transition-all hover:-translate-y-0.5"
               >
-                <item.icon className="w-4 h-4" />
+                <item.icon className="w-3.5 h-3.5 text-primary/60" />
                 {item.label}
               </Link>
             ))}
@@ -38,16 +43,14 @@ const Navigation = () => {
 
           <div className="hidden lg:flex items-center gap-3">
             <Link to="/auth">
-              <Button variant="outline" className="gap-2">
-                <Users className="w-4 h-4" />
-                Espace Conseiller
+              <Button variant="ghost" className="text-[13px] font-black uppercase tracking-widest text-gray-400 hover:text-primary">
+                Espace Pro
               </Button>
             </Link>
-            <Button variant="energy" className="gap-2" asChild>
-              <a href="#contact">
-                <MessageSquare className="w-4 h-4" />
-                Être rappelé
-              </a>
+            <Button variant="energy" className="gap-2 rounded-full px-6 shadow-lg shadow-energy/20 font-black uppercase tracking-widest text-xs h-11" asChild>
+              <Link to="/auth">
+                S'inscrire gratuitement
+              </Link>
             </Button>
           </div>
 
